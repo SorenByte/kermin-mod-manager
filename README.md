@@ -16,23 +16,18 @@ from one place.
 - **Portable.** Drop the single `.exe` into your SPT game folder and run it. It
   uses its own folder as the SPT root, no install or setup. Delete it whenever.
 - **Unified add bar.** Type a mod name to search the Forge, or paste a mod link or
-  a mod-list link. Lists are detected and labelled clearly.
+  a mod-list link. Pasting a list link makes modpack installation very easy.
 - **Rich search results** with thumbnail, version, size, SPT-version compatibility,
-  downloads, author, category, and Fika badge. Sorted by compatibility, then
-  popularity.
-- **Install queue** in a collapsible sidebar. Everything you add (search, list,
+  downloads, author, category, and Fika badge.
+- **Install queue** in a floating sidebar. Everything you add (search, list,
   drag-drop) lands here. Install it all in one go, with per-mod progress and an
   Abort button to skip a stuck or unwanted download/install.
-- **Automatic dependency resolution.** Missing required mods are detected and added
-  (deduplicated, never installed twice).
-- **Correct SPT 4.0 placement.** Client files go to `BepInEx/`, server files to
-  `SPT/user/mods/`, loose `.exe` tools to the game root, with any archive layout
-  normalised automatically (`.zip`, `.7z`, and `.rar`).
+- **Automatic dependency resolution.** Missing dependencies are detected and added.
 - **Manage tab.** One list of installed mods with client / server / both tags,
   enable-disable toggles (a combo mod's halves move together), update checking with
   changelogs, multi-select uninstall, search and filters, and disk usage.
 - **Metadata cache.** Mod icons and details are cached in your SPT folder and only
-  refreshed about once a day, so the Manage list is fast and works offline.
+  refreshed once a day, so the Manage list is fast and works offline.
 
 ## Using the release build
 
@@ -40,7 +35,7 @@ from one place.
 2. Put it in your SPT game folder (the one containing `BepInEx` and `SPT`).
 3. Run it. If it is not in a valid SPT folder, it will warn you and let you pick one.
 
-## Building from source
+## Building from source (NOT FOR NORMAL USERS)
 
 Prerequisites (one time):
 
