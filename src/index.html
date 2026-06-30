@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kermin Mod Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="topbar-left">
+        <img class="brand-logo" src="kermin-logo.png" alt="" />
+        <h1>KERMIN<span class="brand-sub">mod manager</span></h1>
+        <button id="spt-btn" class="spt-btn" title="Set or change your SPT folder">
+          <span id="spt-dot" class="spt-dot"></span><span id="spt-btn-label">SPT folder</span>
+        </button>
+      </div>
+      <nav class="tabs">
+        <button id="tab-btn-install" class="tab active">Install</button>
+        <button id="tab-btn-installed" class="tab">Manage</button>
+      </nav>
+    </header>
+
+    <div id="spt-warning" class="spt-warning hidden"></div>
+
+    <!-- ============ INSTALL TAB ============ -->
+    <main id="tab-install">
+      <aside id="queue-sidebar" class="queue-sidebar">
+        <div class="queue-head">
+          <span class="queue-title">Install queue</span>
+        </div>
+        <div class="queue-body">
+          <div class="queue-actions">
+            <label class="ml-check"><input type="checkbox" id="q-select-all" checked /> All</label>
+            <span id="q-summary" class="muted small"></span>
+          </div>
+          <div class="queue-actions">
+            <button id="q-clear" class="btn ghost sm">Clear</button>
+            <button id="q-install" class="btn primary sm">Install queued</button>
+          </div>
+          <span id="ml-spt-chip" class="ml-spt-chip hidden"></span>
+          <div id="queue-list" class="queue-list"></div>
+          <p id="queue-empty" class="muted queue-empty">Queue is empty. Search a mod, paste a mod/list link, or drop a file.</p>
+        </div>
+      </aside>
+
+      <div class="install-main">
+        <section class="card add-card">
+          <div class="add-row">
+            <input id="uni-search" type="text" class="ml-input" placeholder="Search a mod by name, or paste a mod / list link&hellip;" />
+            <button id="uni-go" class="btn primary">Go</button>
+          </div>
+          <p id="ml-status" class="muted"></p>
+        </section>
+
+        <div id="search-results" class="search-results"></div>
+
+        <section id="dropzone" class="dropzone dropzone-sm">
+          <div class="dz-inner">
+            <div class="dz-icon">&#x2913;</div>
+            <p class="dz-title">Or drag mod <strong>.zip</strong> / <strong>.7z</strong> files here</p>
+            <p class="dz-sub">or <button id="browse-zip" class="link-btn">browse&hellip;</button></p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- ============ MANAGE TAB ============ -->
+    <main id="tab-installed" class="hidden">
+      <div class="manage-toolbar">
+        <input id="inv-search" class="inv-search" type="text" placeholder="Filter by name, author, category&hellip;" />
+        <select id="inv-filter-type" class="inv-sort" title="Filter by type">
+          <option value="all">All types</option>
+          <option value="client">Client</option>
+          <option value="server">Server</option>
+          <option value="both">Client + Server</option>
+        </select>
+        <select id="inv-filter-status" class="inv-sort" title="Filter by status">
+          <option value="all">Any status</option>
+          <option value="enabled">Enabled</option>
+          <option value="disabled">Disabled</option>
+          <option value="updates">Has update</option>
+        </select>
+        <select id="inv-sort" class="inv-sort" title="Sort">
+          <option value="name">Sort: Name</option>
+          <option value="size">Sort: Size</option>
+          <option value="downloads">Sort: Downloads</option>
+          <option value="updates">Sort: Updates first</option>
+          <option value="disabled">Sort: Disabled first</option>
+        </select>
+        <span id="inv-summary" class="muted"></span>
+        <span class="toolbar-spacer"></span>
+        <label class="ml-check"><input type="checkbox" id="inv-select-all" /> All</label>
+        <button id="inv-check-updates" class="btn sm">Check for updates</button>
+        <button id="inv-update-sel" class="btn primary sm hidden">Update selected</button>
+        <button id="inv-uninstall-sel" class="btn danger sm" disabled>Uninstall selected</button>
+      </div>
+      <div id="inv-list" class="inv-list-single"></div>
+    </main>
+
+    <!-- confirm modal -->
+    <div id="modal" class="modal-overlay hidden">
+      <div class="modal">
+        <h3 id="modal-title">Confirm</h3>
+        <p id="modal-body" class="muted"></p>
+        <div class="modal-actions">
+          <button id="modal-cancel" class="btn ghost">Cancel</button>
+          <button id="modal-confirm" class="btn danger">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- changelog modal -->
+    <div id="cl-modal" class="modal-overlay hidden">
+      <div class="modal cl-modal">
+        <div class="cl-head">
+          <h3 id="cl-title">Changelog</h3>
+          <button id="cl-close" class="btn ghost sm">Close</button>
+        </div>
+        <div id="cl-body" class="cl-body"></div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+    <script src="main.js"></script>
+  </body>
+</html>
